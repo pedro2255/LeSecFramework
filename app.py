@@ -16,23 +16,25 @@ def titulo():
 ░░░░░▌░░░░░░░░░░░░░▀▄░░░░░░░▀▀▄
 ░░░░▌░░░░░░░░░░░░░░░░▀▌░░░░░░░░▌
 ░░░▐░░░░░░░░░░░░▒░░░░░▌░░░░░░░░▐
-░░░▌▐░░░░▐░░░░▐▒▒░░░░░▌░░░░░░░░░▌
+░░░▌▐░░░░▐░░░░▐▒▒░░░░░▌░░░░░░░░░▌                          
 ░░▐░▌░░░░▌░░▐░▌▒▒▒░░░▐░░░░░▒░▌▐░▐
 ░░▐░▌▒░░░▌▄▄▀▀▌▌▒▒░▒░▐▀▌▀▌▄▒░▐▒▌░▌
-░░░▌▌░▒░░▐▀▄▌▌▐▐▒▒▒▒▐▐▐▒▐▒▌▌░▐▒▌▄▐  - - "Olá eu sou sua assistente virtual, me chamo Ordália"
+░░░▌▌░▒░░▐▀▄▌▌▐▐▒▒▒▒▐▐▐▒▐▒▌▌░▐▒▌▄▐  
 ░▄▀▄▐▒▒▒░▌▌▄▀▄▐░▌▌▒▐░▌▄▀▄░▐▒░▐▒▌░▀▄
 ▀▄▀▒▒▌▒▒▄▀░▌█▐░░▐▐▀░░░▌█▐░▀▄▐▒▌▌░░░▀
 ░▀▀▄▄▐▒▀▄▀░▀▄▀░░░░░░░░▀▄▀▄▀▒▌░▐
-░░░░▀▐▀▄▒▀▄░░░░░░░░▐░░░░░░▀▌▐
-░░░░░░▌▒▌▐▒▀░░░░░░░░░░░░░░▐▒▐
-░░░░░░▐░▐▒▌░░░░▄▄▀▀▀▀▄░░░░▌▒▐
+░░░░▀▐▀▄▒▀▄░░░░░░░░▐░░░░░░▀▌▐            
+░░░░░░▌▒▌▐▒▀░░░░░░░░░░░░░░▐▒▐     
+░░░░░░▐░▐▒▌░░░░▄▄▀▀▀▀▄░░░░▌▒▐   - - "Olá eu sou sua assistente virtual, me chamo Ordália"
 ░░░░░░░▌▐▒▐▄░░░▐▒▒▒▒▒▌░░▄▀▒░▐
 ░░░░░░▐░░▌▐▐▀▄░░▀▄▄▄▀░▄▀▐▒░░▐
 ░░░░░░▌▌░▌▐░▌▒▀▄▄░░░░▄▌▐░▌▒░▐
-░░░░░▐▒▐░▐▐░▌▒▒▒▒▀▀▄▀▌▐░░▌▒░▌
+░░░░░▐▒▐░▐▐░▌▒▒▒▒▀▀▄▀▌▐░░▌▒░▌                               
 ░░░░░▌▒▒▌▐▒▌▒▒▒▒▒▒▒▒▐▀▄▌░▐▒▒
+
 """
 )
+
 
 #-------------------------------Funções e Codigos do Nmap-----------------------------------#
 
@@ -259,46 +261,133 @@ def escolher_categoria_nmap():
         main()
 
     elif opcao_nmap == 6:
+        os.system("clear")
+
         alvo = input("Digite o alvo (IP ou rede, ex: 192.168.0.0/24): ")
 
         # Menu de opções para Varredura de Scripts (NSE)
-        print("\nEscolha o tipo de varredura de scripts (NSE):")
+        print("\nEscolha o tipo de varredura de scripts (NSE):\n")
         print("1 - Executar scripts padrão (-sC)")
         print("2 - Executar scripts específicos (--script)")
         print("3 - Executar scripts de uma categoria (--script <categoria>)")
-        print("4 - Listar scripts disponíveis (--script-help)")
-        print("5 - Combinar múltiplos scripts (--script <script1,script2>)\n")
+        print("4 - Listar todos os scripts disponíveis")
+        print("5 - Combinar múltiplos scripts (--script <script1,script2>)")
+        print("6 - Execução massiva de scripts")
 
         opcao_script = input("\nEscolha uma opção: ")
 
-        # Montagem do comando com base na escolha do usuário
+        # Opções de varredura baseadas na escolha do usuário
         if opcao_script == "1":
             # Executar scripts padrão (-sC)
             comando = f"nmap -sC {alvo}"
-        
+
         elif opcao_script == "2":
-            # Executar scripts específicos
+            # Executar scripts específicos (--script)
             script_especifico = input("Digite o nome do script ou scripts (ex: http-vuln*,ftp-*): ")
             comando = f"nmap --script {script_especifico} {alvo}"
-        
+
         elif opcao_script == "3":
-            # Executar scripts de uma categoria
-            categoria = input("Digite a categoria de scripts (ex: vuln, auth, discovery, exploit): ")
-            comando = f"nmap --script {categoria} {alvo}"
+            os.system("clear")
+            # Executar scripts de uma categoria (--script <categoria>)
+            print("\nCategorias de Scripts Disponíveis:\n")
+            print("1 - auth (Autenticação)")
+            print("2 - broadcast (Descoberta via Broadcast)")
+            print("3 - brute (Força Bruta)")
+            print("4 - default (Scripts Padrão)")
+            print("5 - discovery (Descoberta)")
+            print("6 - dos (Negação de Serviço)")
+            print("7 - exploit (Exploração de Vulnerabilidades)")
+            print("8 - external (Dependências Externas)")
+            print("9 - fuzzer (Fuzzing)")
+            print("10 - intrusive (Scripts Invasivos)")
+            print("11 - malware (Detecção de Malware)")
+            print("12 - safe (Scripts Seguros)")
+            print("13 - version (Identificação de Versão)")
+            print("14 - vuln (Vulnerabilidades)")
+
+            categoria_opcao = input("Escolha a categoria: ")
+
+            categorias = {
+                "1": "auth",
+                "2": "broadcast",
+                "3": "brute",
+                "4": "default",
+                "5": "discovery",
+                "6": "dos",
+                "7": "exploit",
+                "8": "external",
+                "9": "fuzzer",
+                "10": "intrusive",
+                "11": "malware",
+                "12": "safe",
+                "13": "version",
+                "14": "vuln"
+            }
+
+            if categoria_opcao in categorias:
+                categoria = categorias[categoria_opcao]
+                comando = f"nmap --script {categoria} {alvo}"
+            else:
+                print("Categoria inválida.")
+                comando = None
 
         elif opcao_script == "4":
-            # Listar scripts disponíveis
-            script_info = input("Digite o nome do script para ajuda ou deixe em branco para listar todos: ")
-            if script_info:
-                comando = f"nmap --script-help {script_info}"
-            else:
-                comando = f"nmap --script-help"
+            # Listar todos os scripts disponíveis no diretório padrão do Nmap
+            print("\nListando todos os scripts disponíveis no diretório padrão do Nmap...\n")
+            os.system("ls /usr/share/nmap/scripts/")
+            input("\nAperte enter para voltar.")
 
         elif opcao_script == "5":
-            # Combinar múltiplos scripts
+            # Combinar múltiplos scripts (--script <script1,script2>)
             scripts = input("Digite os scripts separados por vírgula (ex: http-vuln*,ssl-*): ")
             comando = f"nmap --script {scripts} {alvo}"
-        
+
+        elif opcao_script == "6":
+            # Submenu de execução massiva de scripts
+            print("\nEscolha o tipo de execução massiva:\n")
+            print("1 - Executar todos os scripts de uma categoria específica")
+            print("2 - Executar todos os scripts disponíveis no sistema")
+
+            opcao_massiva = input("Escolha uma opção (1 ou 2): ")
+
+            if opcao_massiva == "1":
+                os.system("clear")
+
+                # Executar todos os scripts de uma categoria específica
+                print("\nCategorias de Scripts Disponíveis:\n")
+                print("1 - auth (Autenticação)")
+                print("2 - broadcast (Descoberta via Broadcast)")
+                print("3 - brute (Força Bruta)")
+                print("4 - default (Scripts Padrão)")
+                print("5 - discovery (Descoberta)")
+                print("6 - dos (Negação de Serviço)")
+                print("7 - exploit (Exploração de Vulnerabilidades)")
+                print("8 - external (Dependências Externas)")
+                print("9 - fuzzer (Fuzzing)")
+                print("10 - intrusive (Scripts Invasivos)")
+                print("11 - malware (Detecção de Malware)")
+                print("12 - safe (Scripts Seguros)")
+                print("13 - version (Identificação de Versão)")
+                print("14 - vuln (Vulnerabilidades)")
+
+                categoria_opcao = input("Escolha a categoria: ")
+
+                if categoria_opcao in categorias:
+                    categoria = categorias[categoria_opcao]
+                    comando = f"nmap --script {categoria} {alvo}"
+                else:
+                    print("Categoria inválida.")
+                    comando = None
+
+            elif opcao_massiva == "2":
+                # Executar todos os scripts disponíveis no sistema
+                print("\nExecutando todos os scripts disponíveis no sistema!")
+                comando = f"nmap --script 'all' {alvo}"
+
+            else:
+                print("Opção inválida.")
+                comando = None
+
         else:
             print("Opção inválida.")
             comando = None
@@ -311,7 +400,7 @@ def escolher_categoria_nmap():
         input("Aperte enter para voltar:")
         os.system("clear")
         main()
-    
+
     elif opcao_nmap == 7:
         alvo = input("Digite o alvo (IP ou rede, ex: 192.168.0.0/24): ")
 
@@ -402,19 +491,137 @@ def escolher_categoria_nmap():
         os.system("clear")
         main()
 
-    elif opcao_nmap == 9:
-        print("Comando")
-    
+    elif opcao_nmap == 9:    
+        alvo = input("Digite o alvo (IP ou rede, ex: 192.168.0.0/24): ")
+
+        # Menu de opções para evasão e falsificação
+
+        print("\nEscolha a técnica de evasão ou falsificação:\n")
+        print("1 - Fragmentar pacotes (-f)")
+        print("2 - Falsificar MAC de origem (--spoof-mac)")
+        print("3 - Adicionar dados randômicos aos pacotes (--data-length)")
+        print("4 - Alterar a porta de origem (--source-port)")
+        print("5 - Usar pacotes decoy (-D)")
+        print("6 - Desabilitar consultas de DNS reverso (--disable-dns)\n")
+
+        opcao_evasao = input("\nEscolha uma opção: ")
+
+        # Montagem do comando com base na escolha do usuário
+        if opcao_evasao == "1":
+            # Fragmentar pacotes (-f)
+            comando = f"nmap -f {alvo}"
+        
+        elif opcao_evasao == "2":
+            # Falsificar MAC de origem (--spoof-mac)
+            mac = input("Digite o endereço MAC falso (ex: 00:11:22:33:44:55): ")
+            comando = f"nmap --spoof-mac {mac} {alvo}"
+        
+        elif opcao_evasao == "3":
+            # Adicionar dados randômicos aos pacotes (--data-length)
+            data_length = input("Digite o comprimento dos dados adicionais (ex: 50): ")
+            comando = f"nmap --data-length {data_length} {alvo}"
+        
+        elif opcao_evasao == "4":
+            # Alterar a porta de origem (--source-port)
+            porta_origem = input("Digite a porta de origem (ex: 80, 443): ")
+            comando = f"nmap --source-port {porta_origem} {alvo}"
+        
+        elif opcao_evasao == "5":
+            # Usar pacotes decoy (-D)
+            decoy = input("Digite o número de decoys ou IPs falsos (ex: RND:10 ou 192.168.0.1,192.168.0.2): ")
+            comando = f"nmap -D {decoy} {alvo}"
+        
+        elif opcao_evasao == "6":
+            # Desabilitar consultas de DNS reverso (--disable-dns)
+            comando = f"nmap --disable-dns {alvo}"
+        
+        else:
+            print("Opção inválida.")
+            comando = None
+
+        # Executa o comando, se válido
+        if comando:
+            print(f"\nExecutando comando: {comando}")
+            os.system(comando)
+
+        input("Aperte enter para voltar:")
+        os.system("clear")
+        main()
+
     elif opcao_nmap == 10:
-        print("Comando")
-    
+        alvo = input("Digite o alvo (IP ou rede, ex: 192.168.0.0/24): ")
+
+        # Menu de opções para saída e relatórios
+        print("\nEscolha o formato de saída:\n")
+        print("1 - Saída em formato normal (-oN)")
+        print("2 - Saída em formato XML (-oX)")
+        print("3 - Saída em formato grepable (-oG)")
+        print("4 - Saída em todos os formatos (-oA)")
+        print("5 - Anexar à saída existente (--append-output)")
+
+        opcao_saida = input("\nEscolha uma opção: ")
+
+        if opcao_saida == "1":
+            # Saída em formato normal (-oN)
+            arquivo = input("Digite o nome do arquivo de saída (ex: resultado.txt): ")
+            comando = f"nmap -oN {arquivo} {alvo}"
+        
+        elif opcao_saida == "2":
+            # Saída em formato XML (-oX)
+            arquivo = input("Digite o nome do arquivo de saída (ex: resultado.xml): ")
+            comando = f"nmap -oX {arquivo} {alvo}"
+        
+        elif opcao_saida == "3":
+            # Saída em formato grepable (-oG)
+            arquivo = input("Digite o nome do arquivo de saída (ex: resultado.grep): ")
+            comando = f"nmap -oG {arquivo} {alvo}"
+        
+        elif opcao_saida == "4":
+            # Saída em todos os formatos (-oA)
+            arquivo = input("Digite o nome base do arquivo de saída (ex: resultado): ")
+            comando = f"nmap -oA {arquivo} {alvo}"
+        
+        elif opcao_saida == "5":
+            # Anexar à saída existente (--append-output)
+            arquivo = input("Digite o nome do arquivo de saída existente (ex: resultado.txt): ")
+            comando = f"nmap --append-output -oN {arquivo} {alvo}"
+        
+        else:
+            print("Opção inválida.")
+            comando = None
+
+        # Executa o comando, se válido
+        if comando:
+            print(f"\nExecutando comando: {comando}")
+            os.system(comando)
+
+        input("Aperte enter para voltar:")
+        os.system("clear")
+        main()
+
     elif opcao_nmap == 11:
-        print("Comando")
+        main()
 
 #-----------------------------------------------------------------------------------#
 
+def dados_dev():
+    RED = '\033[91m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    BLUE = '\033[94m'
+    MAGENTA = '\033[95m'
+    CYAN = '\033[96m'
+    RESET = '\033[0m'  # Resetar para a cor padrão
+
+    print(f"{CYAN}Desenvolvedor: Pedro Ramos{RESET}")
+    print(f"{BLUE}Linkedin: https://www.linkedin.com/in/pedro-ramos-02a905193/{RESET}")
+    print(f"{MAGENTA}Instagram: pedroti255{RESET}")
+    print(f"{GREEN}Github: pedro2255{RESET}\n")
+
+
 def menu_principal():
     print("1 - Nmap")
+    print("2 - Hydra (em desenvolvimento)")
 
 def escolher_opcao():
     opcao_escolhida = int(input("\n 𝙴𝚂𝙲𝙾𝙻𝙷𝙰 𝙰 𝙿𝙸́𝚁𝚄𝙻𝙰 𝚀𝚄𝙴 𝚅𝙾𝙲𝙴̂ 𝚀𝚄𝙴𝚁 𝚃𝙾𝙼𝙰𝚁:"))
@@ -423,8 +630,15 @@ def escolher_opcao():
         menu_nmap()
         escolher_categoria_nmap()
 
+    if opcao_escolhida == 2:
+        menu_sqlmap()
+        escolher_categoria_sqlmap()
+        
+
 def main():
+    os.system("clear")
     titulo()
+    dados_dev()
     menu_principal()
     escolher_opcao()
 
