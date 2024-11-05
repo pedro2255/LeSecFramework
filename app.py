@@ -1,4 +1,7 @@
 import os
+import subprocess
+import os
+import re
 
 def titulo():
     print(
@@ -10,27 +13,25 @@ def titulo():
 ┃╰━╯┃╰━┻┳━┫╰━╯┃╰━━┫╰━╯┣━━┫┃╱╱┃┃┃╰┫╭━╮┃┃┃┃┃┃╰━━╋╮╭╮╭┫╰━╯┃┃┃╰┫┃┃╰╮
 ╰━━━┻━━━╯╱╰━━━┻━━━┻━━━╯╱╱╰╯╱╱╰╯╰━┻╯╱╰┻╯╰╯╰┻━━━╯╰╯╰╯╰━━━┻╯╰━┻╯╰━╯
 
-░░░░░░░░░░░▄▄▀▀▀▀▀▀▀▀▄▄
-░░░░░░░░▄▀▀░░░░░░░░░░░░▀▄▄
-░░░░░░▄▀░░░░░░░░░░░░░░░░░░▀▄
-░░░░░▌░░░░░░░░░░░░░▀▄░░░░░░░▀▀▄
-░░░░▌░░░░░░░░░░░░░░░░▀▌░░░░░░░░▌
-░░░▐░░░░░░░░░░░░▒░░░░░▌░░░░░░░░▐
-░░░▌▐░░░░▐░░░░▐▒▒░░░░░▌░░░░░░░░░▌                          
-░░▐░▌░░░░▌░░▐░▌▒▒▒░░░▐░░░░░▒░▌▐░▐
-░░▐░▌▒░░░▌▄▄▀▀▌▌▒▒░▒░▐▀▌▀▌▄▒░▐▒▌░▌
-░░░▌▌░▒░░▐▀▄▌▌▐▐▒▒▒▒▐▐▐▒▐▒▌▌░▐▒▌▄▐  
-░▄▀▄▐▒▒▒░▌▌▄▀▄▐░▌▌▒▐░▌▄▀▄░▐▒░▐▒▌░▀▄
-▀▄▀▒▒▌▒▒▄▀░▌█▐░░▐▐▀░░░▌█▐░▀▄▐▒▌▌░░░▀
-░▀▀▄▄▐▒▀▄▀░▀▄▀░░░░░░░░▀▄▀▄▀▒▌░▐
-░░░░▀▐▀▄▒▀▄░░░░░░░░▐░░░░░░▀▌▐            
-░░░░░░▌▒▌▐▒▀░░░░░░░░░░░░░░▐▒▐     
-░░░░░░▐░▐▒▌░░░░▄▄▀▀▀▀▄░░░░▌▒▐   - - "Olá eu sou sua assistente virtual, me chamo Ordália"
-░░░░░░░▌▐▒▐▄░░░▐▒▒▒▒▒▌░░▄▀▒░▐
-░░░░░░▐░░▌▐▐▀▄░░▀▄▄▄▀░▄▀▐▒░░▐
-░░░░░░▌▌░▌▐░▌▒▀▄▄░░░░▄▌▐░▌▒░▐
-░░░░░▐▒▐░▐▐░▌▒▒▒▒▀▀▄▀▌▐░░▌▒░▌                               
-░░░░░▌▒▒▌▐▒▌▒▒▒▒▒▒▒▒▐▀▄▌░▐▒▒
+███████████████████████████
+███████▀▀▀░░░░░░░▀▀▀███████
+████▀░░░░░░░░░░░░░░░░░▀████
+███│░░░░░░░░░░░░░░░░░░░│███
+██▌│░░░░░░░░░░░░░░░░░░░│▐██
+██░└┐░░░░░░░░░░░░░░░░░┌┘░██
+██░░└┐░░░░░░░░░░░░░░░┌┘░░██
+██░░┌┘▄▄▄▄▄░░░░░▄▄▄▄▄└┐░░██
+██▌░│██████▌░░░▐██████│░▐██
+███░│▐███▀▀░░▄░░▀▀███▌│░███
+██▀─┘░░░░░░░▐█▌░░░░░░░└─▀██
+██▄░░░▄▄▄▓░░▀█▀░░▓▄▄▄░░░▄██
+████▄─┘██▌░░░░░░░▐██└─▄████
+█████░░▐█─┬┬┬┬┬┬┬─█▌░░█████
+████▌░░░▀┬┼┼┼┼┼┼┼┬▀░░░▐████
+█████▄░░░└┴┴┴┴┴┴┴┘░░░▄█████
+███████▄░░░░░░░░░░░▄███████
+██████████▄▄▄▄▄▄▄██████████
+███████████████████████████
 
 """
 )
@@ -602,8 +603,115 @@ def escolher_categoria_nmap():
     elif opcao_nmap == 11:
         main()
 
-#-----------------------------------------------------------------------------------#
+#-------------------------------------------------------------------------------------------#
 
+#-------------------------------Funções e Codigos do Dirp----------------------------------#
+
+def dirb_menu_principal():
+    os.system("clear")
+    print("\n=== Dirb ===\n")
+    print("1. Escaneamento Básico")
+    print("2. Escaneamento com Extensões Específicas")
+    print("3. Escaneamento Recursivo")
+    print("4. Escaneamento com Proxy")
+    print("5. Escaneamento com Cookies")
+    print("6. Ignorar Códigos HTTP Específicos")
+    print("7. Modo Silencioso")
+    print("8. Escaneamento com Salvamento de Resultados")
+    print("9. Ataque total")
+    print("10. Voltar ao menu principal\n")
+
+    escolha = input("Escolha uma opção: ")
+    os.system("clear")
+
+    if escolha == "1":
+        dirb_basic_scan()
+    elif escolha == "2":
+        dirb_scan_with_extensions()
+    elif escolha == "3":
+        dirb_recursive_scan()
+    elif escolha == "4":
+        dirb_proxy_scan()
+    elif escolha == "5":
+        dirb_cookie_scan()
+    elif escolha == "6":
+        dirb_ignore_http_codes()
+    elif escolha == "7":
+        dirb_silent_mode()
+    elif escolha == "8":
+        dirb_save_results()
+    elif escolha == "9":
+        dirb_full_attack()
+    elif escolha == "10":
+        main()
+    else:
+        print("Opção inválida! Retornando ao menu.")
+        dirb_menu_principal()
+
+def dirb_basic_scan():
+    url = input("Digite a URL para o escaneamento básico: ")
+    wordlist = "/usr/share/dirb/wordlists/common.txt"
+    os.system(f"dirb {url} {wordlist}")
+
+def dirb_scan_with_extensions():
+    url = input("Digite a URL para o escaneamento com extensões específicas: ")
+    extensions = input("Digite as extensões (exemplo: .php,.html,.bak): ")
+    wordlist = "/usr/share/dirb/wordlists/common.txt"
+    os.system(f"dirb {url} {wordlist} -X {extensions}")
+
+def dirb_recursive_scan():
+    url = input("Digite a URL para o escaneamento recursivo: ")
+    wordlist = "/usr/share/dirb/wordlists/common.txt"
+    os.system(f"dirb {url} {wordlist} -r")
+
+def dirb_proxy_scan():
+    url = input("Digite a URL para o escaneamento com proxy: ")
+    proxy = input("Digite o endereço do proxy (exemplo: 127.0.0.1:8080): ")
+    wordlist = "/usr/share/dirb/wordlists/common.txt"
+    os.system(f"dirb {url} {wordlist} -p {proxy}")
+
+def dirb_cookie_scan():
+    url = input("Digite a URL para o escaneamento com cookies: ")
+    cookie = input("Digite o cookie (exemplo: PHPSESSID=abc123): ")
+    wordlist = "/usr/share/dirb/wordlists/common.txt"
+    os.system(f"dirb {url} {wordlist} -c \"{cookie}\"")
+
+def dirb_ignore_http_codes():
+    url = input("Digite a URL para ignorar códigos HTTP específicos: ")
+    http_code = input("Digite o código HTTP a ser ignorado (exemplo: 404): ")
+    wordlist = "/usr/share/dirb/wordlists/common.txt"
+    os.system(f"dirb {url} {wordlist} -N {http_code}")
+
+def dirb_silent_mode():
+    url = input("Digite a URL para o modo silencioso: ")
+    wordlist = "/usr/share/dirb/wordlists/common.txt"
+    os.system(f"dirb {url} {wordlist} -S")
+
+def dirb_save_results():
+    url = input("Digite a URL para o escaneamento com salvamento de resultados: ")
+    output_file = input("Digite o nome do arquivo para salvar os resultados (exemplo: resultados.txt): ")
+    wordlist = "/usr/share/dirb/wordlists/common.txt"
+    os.system(f"dirb {url} {wordlist} -o {output_file}")
+
+def dirb_full_attack():
+    url = input("Digite a URL para o ataque completo: ")
+    wordlist = "/usr/share/dirb/wordlists/common.txt"
+    output_file = "dirb_full_attack_results.txt"
+    extensions = ".php,.html,.txt,.bak"
+    ignore_code = "404"
+    cookie = "PHPSESSID=abc123"  # Ajuste para o valor real, se necessário
+
+    print(f"\nIniciando Ataque Completo em {url} com as seguintes configurações:")
+    print(f"- Wordlist: {wordlist}")
+    print(f"- Extensões: {extensions}")
+    print(f"- Ignorar código HTTP: {ignore_code}")
+    print(f"- Modo Recursivo e Silencioso")
+    print(f"- Cookie de Sessão: {cookie}")
+    print(f"- Resultados salvos em: {output_file}\n")
+
+    os.system(f"dirb {url} {wordlist} -X {extensions} -r -N {ignore_code} -S -o {output_file} -z 200 -w -H \"Authorization: Bearer token123\" -f -c \"{cookie}\"")
+
+#-------------------------------------------------------------------------------------------#
 def dados_dev():
     RED = '\033[91m'
     GREEN = '\033[92m'
@@ -621,18 +729,24 @@ def dados_dev():
 
 def menu_principal():
     print("1 - Nmap")
-    print("2 - Hydra (em desenvolvimento)")
-
+    print("2 - Dirb")
+    print("3 - DNSrecon (em desenvolvimento)")
+    
 def escolher_opcao():
-    opcao_escolhida = int(input("\n 𝙴𝚂𝙲𝙾𝙻𝙷𝙰 𝙰 𝙿𝙸́𝚁𝚄𝙻𝙰 𝚀𝚄𝙴 𝚅𝙾𝙲𝙴̂ 𝚀𝚄𝙴𝚁 𝚃𝙾𝙼𝙰𝚁:"))
+    RED = '\033[91m'
+    RESET = '\033[0m'
+    opcao_escolhida = int(input(f"\n {RED} ESCOLHA A PIRULA QUE VOCE QUER TOMAR:{RESET}"))
 
     if opcao_escolhida == 1:
         menu_nmap()
         escolher_categoria_nmap()
 
-    if opcao_escolhida == 2:
-        menu_sqlmap()
-        escolher_categoria_sqlmap()
+    elif opcao_escolhida == 2:
+        dirb_menu_principal()
+
+    else:
+        print("Opção inválida.")
+        main()
         
 
 def main():

@@ -1,0 +1,128 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb_full_attack_results.txt
+START_TIME: Sat Nov  2 22:40:11 2024
+URL_BASE: https://redtiger.labs.overthewire.org/[D/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+COOKIE: PHPSESSID=abc123
+OPTION: Fine tunning of NOT_FOUND detection
+ADDED_HEADERS: 
+--
+Authorization: Bearer token123
+--
+OPTION: Ignoring NOT_FOUND code -> 404
+PROXY: 127.0.0.1:8080
+OPTION: Not Recursive
+OPTION: Silent Mode
+OPTION: Not Stopping on warning messages
+EXTENSIONS_LIST: (.php,.html,.txt,.bak) | (.php)(.html)(.txt)(.bak) [NUM = 4]
+SPEED_DELAY: 200 milliseconds
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: https://redtiger.labs.overthewire.org/[D/ ----
+
+(!) FATAL: Too many errors connecting to host
+    (Possible cause: URL MALFORMAT)
+
+-----------------
+END_TIME: Sat Nov  2 22:40:11 2024
+DOWNLOADED: 0 - FOUND: 0
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb_full_attack_results.txt
+START_TIME: Sat Nov  2 22:40:22 2024
+URL_BASE: https://redtiger.labs.overthewire.org/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+COOKIE: PHPSESSID=abc123
+OPTION: Fine tunning of NOT_FOUND detection
+ADDED_HEADERS: 
+--
+Authorization: Bearer token123
+--
+OPTION: Ignoring NOT_FOUND code -> 404
+PROXY: 127.0.0.1:8080
+OPTION: Not Recursive
+OPTION: Silent Mode
+OPTION: Not Stopping on warning messages
+EXTENSIONS_LIST: (.php,.html,.txt,.bak) | (.php)(.html)(.txt)(.bak) [NUM = 4]
+SPEED_DELAY: 200 milliseconds
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: https://redtiger.labs.overthewire.org/ ----
+
+(!) FATAL: Too many errors connecting to host
+    (Possible cause: COULDNT CONNECT)
+
+-----------------
+END_TIME: Sat Nov  2 22:40:22 2024
+DOWNLOADED: 0 - FOUND: 0
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb_full_attack_results.txt
+START_TIME: Sat Nov  2 22:44:00 2024
+URL_BASE: https://redtiger.labs.overthewire.org/index.php/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+COOKIE: PHPSESSID=abc123
+OPTION: Fine tunning of NOT_FOUND detection
+ADDED_HEADERS: 
+--
+Authorization: Bearer token123
+--
+OPTION: Ignoring NOT_FOUND code -> 404
+OPTION: Not Recursive
+OPTION: Silent Mode
+OPTION: Not Stopping on warning messages
+EXTENSIONS_LIST: (.php,.html,.txt,.bak) | (.php)(.html)(.txt)(.bak) [NUM = 4]
+SPEED_DELAY: 200 milliseconds
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: https://redtiger.labs.overthewire.org/index.php/ ----
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: dirb_full_attack_results.txt
+START_TIME: Sat Nov  2 22:45:30 2024
+URL_BASE: http://localhost/DVWA/login.php/
+WORDLIST_FILES: /usr/share/dirb/wordlists/common.txt
+COOKIE: PHPSESSID=abc123
+OPTION: Fine tunning of NOT_FOUND detection
+ADDED_HEADERS: 
+--
+Authorization: Bearer token123
+--
+OPTION: Ignoring NOT_FOUND code -> 404
+OPTION: Not Recursive
+OPTION: Silent Mode
+OPTION: Not Stopping on warning messages
+EXTENSIONS_LIST: (.php,.html,.txt,.bak) | (.php)(.html)(.txt)(.bak) [NUM = 4]
+SPEED_DELAY: 200 milliseconds
+
+-----------------
+
+GENERATED WORDS: 4612
+
+---- Scanning URL: http://localhost/DVWA/login.php/ ----

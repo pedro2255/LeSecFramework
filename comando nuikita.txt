@@ -1,0 +1,1 @@
+nuitka --standalone --follow-imports --lto=yes --remove-output app.py
